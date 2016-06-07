@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+d=${0:a:h}
+s=$d/scpt
+j=$d/json
+mkdir -p $j
+f=$j/blogger_body.json
+
+$s/blogger_help.sh
+
+$s/blogger_access.sh
+
+case $1 in
+	-u)
+		$s/blogger_update.sh
+	;;
+	"")
+		$s/blogger_post.sh
+	;;
+esac
