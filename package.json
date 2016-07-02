@@ -1,0 +1,23 @@
+{
+  "name": "blogger",
+  "version": "1.0.0",
+  "description": "Blogger Post CLI.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syui/blogger-cl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syui/blogger-cl/issues"
+  },
+  "homepage": "https://github.com/syui/blogger-cl#readme"
+}

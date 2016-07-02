@@ -15,7 +15,8 @@ txt=$lhome/json
 acce=$txt/access.json
 body=$txt/${ta}_${tb}.json
 day=`date +"%y%m%d%H%M"`
-tmp='{"title":"","content":""}'
+mday=`date +"%Y/%m/%d"`
+tmp="{\"title\":\"\",\n\"content\":\"\",\n\"labels\":[\"origin\"],\n\"customMetaData\":\"$mday\"}"
 id=`cat $lhome/${ta}.json|jq -r ".${ta}_id"`
 
 if [ -e $acce ]; then

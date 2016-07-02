@@ -6,9 +6,13 @@ j=$d/json
 mkdir -p $j
 f=$j/blogger_body.json
 
-$s/blogger_help.sh
+cd $d
+mkdir -p {md,html,json}
+git pull
 
+$s/blogger_help.sh
 $s/blogger_access.sh
+#$s/token_refresh.sh
 
 case $1 in
 	-u)
@@ -17,4 +21,12 @@ case $1 in
 	"")
 		$s/blogger_post.sh
 	;;
+	-a)
+		$s/blogger_auto.sh
+	;;
 esac
+
+cd $d
+git add .
+git commit -m "update:auto"
+git push -f

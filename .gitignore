@@ -1,2 +1,5 @@
 json
-#blogger.json
+blogger.json
+./node_modules
+html
+md

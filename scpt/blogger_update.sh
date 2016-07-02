@@ -20,6 +20,8 @@ $scpt/${ta}_list.sh
 id=`cat $lhome/${ta}.json|jq -r ".${ta}_id"`
 title=`cat $txt/${ta}_list.json| jq -r '.items|.[]|.title'`
 cid=`cat $txt/${ta}_list.json| jq -r '.items|.[]|.id'`
+cid=`cat $txt/${ta}_list.json| jq -r '.items|.[]|.id'`
+cdate=`cat $txt/${ta}_list.json| jq -r '.items|.[]|.updated'|cut -d 'T' -f 1|tr '-' '/'`
 
 pid=$(
 for ((i=1;i<=`echo "$title"|wc -l`;i++ ))
@@ -38,7 +40,7 @@ if [ -e $acce ]; then
      url=https://www.googleapis.com/${ta}/$v/$oa/$id/$ob/$pid
      tmp=`curl -s -H "Authorization: Bearer $access" $url`
      echo "$tmp" >! $f
-     tmp="{\"title\":`echo $tmp|jq '.title'`,\n\"content\":`echo $tmp|jq '.content'`}"
+     tmp="{\"title\":`echo $tmp|jq '.title'`,\n\"content\":`echo $tmp|jq '.content'`,\n\"customMetaData\":`echo $tmp|jq '.updated'|cut -d 'T' -f 1|tr '-' '/'`\",\n\"labels\":[\"\"]}"
 	echo -e "$tmp" >! $f
      $edit $f
 
